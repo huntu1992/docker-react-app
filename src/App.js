@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          뀨룩
+          하위ㅇㅇㅇ 아하~
         </a>
       </header>
     </div>
