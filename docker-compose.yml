@@ -6,9 +6,9 @@ services:
       dockerfile: Dockerfile.dev # 도커파일 이름
     ports:
       - "5000:3000" #노출될 포트: 내부에서 보여줄 포트
-    environment:
-      # 핫로딩 활성화
-      - CHOKIDAR_USEPOLLING=true
+    # environment:
+    #   # 핫로딩 활성화
+    #   - CHOKIDAR_USEPOLLING=true
     volumes:
       - /usr/src/app/node_modules
       - ./:/usr/src/app
@@ -17,9 +17,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    environment:
-      # 핫로딩 활성화
-      - CHOKIDAR_USEPOLLING=true
+    # environment:
+    #   # 핫로딩 활성화
+    #   - CHOKIDAR_USEPOLLING=true
     volumes:
       - /usr/src/app/node_modules
       - ./:/usr/src/app
