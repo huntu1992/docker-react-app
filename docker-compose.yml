@@ -1,0 +1,26 @@
+version: "3"
+services:
+  react:
+    build:
+      context: . #이미지로 빌드시킬 파일경로
+      dockerfile: Dockerfile.dev # 도커파일 이름
+    ports:
+      - "5000:3000" #노출될 포트: 내부에서 보여줄 포트
+    environment:
+      # 핫로딩 활성화
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - /usr/src/app/node_modules
+      - ./:/usr/src/app
+    stdin_open: true #react에 한정된 부분 이게 없으면 버그 일어남
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    environment:
+      # 핫로딩 활성화
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - /usr/src/app/node_modules
+      - ./:/usr/src/app
+    command: ["npm", "run", "test"]
